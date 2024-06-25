@@ -13,7 +13,7 @@ async function getFilms(id) {
     let film;
     try {
       film = await fetchFilm(id)
-      film.homeworld = await fetchHomeworld(film)
+      film.planets = await fetchHomeworld(film)
       film.characters = await fetchCharacter(film)
     }
     catch (ex) {
@@ -32,7 +32,7 @@ async function getFilms(id) {
     const url = `${baseUrl}/films/${film?.id}/planets`;
     const planets = await fetch(url)
         .then(res => res.json())
-      return planets;
+    return planets;
 
   }
   
